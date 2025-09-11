@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Registro | Proyecto</title>
+</head>
+
+<body>
+    <h1>Te damos la bienvenida al sistema de asistencia</h1>
+    <section id="seccionAsistencia">
+        <div class="confirmar-asistencia-container">
+            <input type="number" id="idActividadConfirmarAsistencia" placeholder="ID de la actividad..." required>
+            <button id="btnConfirmarAsistencia">Confirmar mi asistencia</button>
+        </div>
+
+
+        <h2>Tu asistencia de actividades:</h2>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID de la de actividad</th>
+                        <th>Fecha</th>
+                        <th>Actividad</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody id="view-asistencia-completa-tbody">
+                    <!-- Filas dinámicas -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    </section>
+
+    <button class="btn-cerrar" id="btnCerrarSesion">Cerrar sesión</button>
+
+
+
+    <script src="auth.js"></script>
+    <script src="participante.js"></script>
+</body>

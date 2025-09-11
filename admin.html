@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <title>Prueba Supabase</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <h1>Sistema de asisitencia</h1>
+
+  <!-- SECCIÓN ACTIVIDADES -->
+  <section id="seccionActividades">
+    <h2>Sección de actividades:</h2>
+
+    <!-- FORMULARIO AGREGAR ACTIVIDAD -->
+    <h3>Agregar actividad</h3>
+    <form id="formAgregarActividad">
+      <input type="number" id="idActividad" placeholder="ID de actividad..." required>
+      <input type="date" id="fechaActividad" required>
+      <input type="text" id="observacionesActividad" placeholder="Observaciones..." required>
+
+      <select id="idTipoActividad" required>
+        <option value="">Selecciona un tipo de actividad...</option>
+      </select>
+
+      <select id="idEstadoActividad" required>
+        <option value="">Selecciona un estado...</option>
+      </select>
+
+      <button class="btn-agregar" type="submit">Agregar actividad</button>
+    </form>
+
+    <!-- FORMULARIO ACTUALIZAR ACTIVIDAD -->
+    <h3>Actualizar actividad</h3>
+    <form id="formActualizarActividad">
+      <input type="number" id="idActividadActualizar" placeholder="ID de actividad..." required>
+      <input type="date" id="fechaActividadActualizar" required>
+      <input type="text" id="observacionesActividadActualizar" placeholder="Observaciones..." required>
+
+      <select id="idTipoActividadActualizar">
+        <option value="">Selecciona un tipo de actividad...</option>
+      </select>
+
+      <select id="idEstadoActividadActualizar" required>
+        <option value="">Selecciona un estado...</option>
+      </select>
+
+      <button class="btn-actualizar" type="submit">Actualizar estado de la actividad</button>
+    </form>
+
+    <!-- TABLA DE ACTIVIDADES -->
+    <h4>Actividades almacenadas:</h4>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID de Actividad</th>
+            <th>Fecha</th>
+            <th>Observaciones</th>
+            <th>ID del tipo de actividad</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="actividades-tbody">
+          <!-- Filas dinámicas -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+
+  <section id="seccionAsistencia">
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID de la de actividad</th>
+            <th>Fecha</th>
+            <th>Actividad</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody id="asistencia-actividad-tbody">
+          <!-- Filas dinámicas -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- SECCIÓN TIPOS DE ACTIVIDADES -->
+  <section id="seccionTiposActividades">
+    <h3>Sección de TIPOS DE actividades:</h3>
+
+    <!-- FORMULARIO AGREGAR TIPO -->
+    <h2>Agregar tipo de actividad</h2>
+    <form id="formAgregarTipoActividad">
+      <input type="number" id="idAgregarIDTipoActividad" placeholder="ID del tipo de actividad..." required>
+      <input type="text" id="idAgregarDescripcionTipoActividad" placeholder="Descripción..." required>
+      <select id="idAgregarEstadoTipoActividad" required>
+        <option value="">Selecciona un estado...</option>
+      </select>
+      <button classs="btn-agregar"type="submit">Agregar tipo</button>
+    </form>
+
+    <!-- FORMULARIO ACTUALIZAR TIPO -->
+    <h2>Actualizar tipo de actividad</h2>
+    <form id="formActualizarTipoActividad">
+      <input type="number" id="idActualizarIDTipoActividad" placeholder="ID del tipo de actividad..." required>
+      <input type="text" id="idActualizarDescripcionTipoActividad" placeholder="Descripción..." required>
+      <select id="idActualizarEstadoTipoActividad" required>
+        <option value="">Selecciona un estado...</option>
+      </select>
+      <button class="btn-actualizar" type="submit">Actualizar tipo</button>
+    </form>
+
+    <!-- TABLA TIPOS DE ACTIVIDADES -->
+    <h2>Tipos de actividades almacenadas:</h2>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID del tipo de actividad</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tipos-actividad-tbody">
+          <!-- Filas dinámicas -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  
+  <!-- en admin.html o participantes.html -->
+  <button class="btn-cerrar" id="btnCerrarSesion">Cerrar sesión</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

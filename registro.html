@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+  <link rel="stylesheet" href="auth.css">
+  <title>Registro | Proyecto</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Usuario</h1>
+
+    <form id="formRegistro">
+      <label for="emailRegistro">Correo electrónico</label>
+      <input type="email" id="emailRegistro" placeholder="tu@email.com" required>
+
+      <label for="passRegistro">Contraseña</label>
+      <input type="password" id="passRegistro" placeholder="********" required>
+
+      <label for="nameRegistro">Nombre</label>
+      <input type="text" id="nameRegistro" placeholder="Tu nombre.." required>
+
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión aquí</a></p>
+  </div>
+
+  <!-- JS para login y registro -->
+</body>
+</html>
