@@ -28,14 +28,14 @@ async function registrarUsuario(email, password) {
         {
           id_participante_pk: user.id,
           nombre: nombre,
-          id_rol_fk: 3,       // participante por defecto
-          id_estado_fk: 1,    // activo
+          id_rol_fk: 3,      
+          id_estado_fk: 1,   
         },
       ]);
 
     if (insertError) throw insertError;
 
-    alert("Registro exitoso ✅. Verifica tu correo si es necesario.");
+    alert("Registro exitoso ✅. Ahora tienes que validar tu correo y posteriormente esperar a que tu usuario sea habilitado");
     window.location.href = "index.html";
   } catch (err) {
     console.error("Error al registrar:", err.message);
