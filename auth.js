@@ -76,7 +76,7 @@ async function iniciarSesion(email, password) {
     const rol = participante.roles_tb.descripcion.toLowerCase().trim();
     if (rol === "admin") {
       alert("Bienvenido Admin 👋");
-      window.location.href = "admin.html";
+      window.location.href = "actividadesAdmin.html";
     } else if (rol === "participante") {
       alert("Bienvenido Participante 👋");
       window.location.href = "participante.html";
