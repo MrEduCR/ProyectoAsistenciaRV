@@ -28,8 +28,8 @@ async function registrarUsuario(email, password) {
         {
           id_participante_pk: user.id,
           nombre: nombre,
-          id_rol_fk: 3,      
-          id_estado_fk: 1,   
+          id_rol_fk: 3,
+          id_estado_fk: 1,
         },
       ]);
 

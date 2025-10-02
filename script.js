@@ -228,6 +228,7 @@ async function actualizarTiposActividad(event) {
   event.preventDefault(); // Evita que el formulario recargue la página
 
   // Obtener valores del formulario
+  
   const idTipoActividad = document.getElementById("idActualizarIDTipoActividad").value.trim();
   const descripcionTipoActividad = document.getElementById("idActualizarDescripcionTipoActividad").value.trim();
   const idEstadoActividad = document.getElementById("idActualizarEstadoTipoActividad").value;
@@ -265,7 +266,7 @@ async function actualizarTiposActividad(event) {
 }
 
 
-async function obtenerAsistencia() {
+async function obtenerAsistencia() { //pendiente implementar 
   const {data, error} = await supabaseClient
     .from("actividades_participantes_v")
     .select(`
@@ -313,7 +314,6 @@ window.onload = function () {
   document
     .getElementById("formAgregarActividad")
     .addEventListener("submit", agregarActividad);
-
 
   document
     .getElementById("formActualizarActividad")
