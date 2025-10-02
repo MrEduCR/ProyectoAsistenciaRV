@@ -79,10 +79,9 @@ async function obtenerAsistenciaCompleta() {
       .select(`
         id_actividad,
         fecha_actividad,
-        tipo_actividad,
-        nombre_participante
+        tipo_actividad
       `)
-      .eq("id_participante", user.id) // 👈 Importante usar el campo correcto
+      .eq("id_participante", user.id) // Importante usar el campo correcto
       .order("fecha_actividad", { ascending: false });
 
     if (error) {
@@ -98,7 +97,7 @@ async function obtenerAsistenciaCompleta() {
     if (!data || data.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="4" style="text-align:center;">No tienes participaciones registradas 🙁</td>
+          <td colspan="4" style="text-align:center;">No tienes participaciones registradas o reiniciaron el server 🙁</td>
         </tr>
       `;
       return;
@@ -110,7 +109,6 @@ async function obtenerAsistenciaCompleta() {
         <td>${actividad.id_actividad}</td>
         <td>${actividad.fecha_actividad}</td>
         <td>${actividad.tipo_actividad}</td>
-        <td>${actividad.nombre_participante}</td>
       `;
       tbody.appendChild(fila);
     });
@@ -121,11 +119,46 @@ async function obtenerAsistenciaCompleta() {
 }
 
 
+async function cargarNombreUsuario() {
+  try {
+    const {
+      data: { user },
+      error: userError
+    } = await supabaseClient.auth.getUser();  //de aquí sacamos el user.id
+    
+    if (userError) {
+      console.error("Error al obtener usuario:", userError.message);
+      return;
+    }
+
+    const { data, error } = await supabaseClient
+      .from("participantes_tb")
+      .select("nombre")
+      .eq("id_participante_pk", user.id)
+      .single(); // taer solo un registro
+
+    const nombreUsuarioSpan = document.getElementById("nombreUsuario");
+    nombreUsuarioSpan.innerHTML = "";
+
+    if (error) {
+      console.error("Error al obtener nombre:", error.message);
+      nombreUsuarioSpan.textContent = "Usuario";
+      return;
+    }
+
+    nombreUsuarioSpan.textContent = data.nombre;
+
+  } catch (err) {
+    console.error("Error inesperado:", err);
+  }
+}
+
+
 // Agregamos el listener al botón
 document.addEventListener("DOMContentLoaded", () => {
   // Cargar la tabla de asistencias apenas abra la página
   obtenerAsistenciaCompleta();
-
+  cargarNombreUsuario();
   // Agregar listener al botón de confirmar asistencia
   const btnConfirmar = document.getElementById("btnConfirmarAsistencia");
   if (btnConfirmar) {
